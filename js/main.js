@@ -19,13 +19,12 @@ document.getElementById("start-button").addEventListener("click", () => {
   if (!isGameStarted) {
     startButton.textContent = "Replay";
     game.startGame();
-    isGameStarted = true;
-    remainingTime = args.timeLimit;
   } else {
     game.replayGame();
-    isGameStarted = false;
     isTimerPaused = false;
   }
+  isGameStarted = true;
+  remainingTime = args.timeLimit;
 });
 
 const gridContainer = document.getElementById("grid-container");
