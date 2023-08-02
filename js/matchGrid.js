@@ -29,7 +29,7 @@ export default class MatchGrid {
         this.grid.push(element);
       }
     }
-
+    
     this.shuffleGrid();
     this.grid.forEach((element) => gridContainer.appendChild(element.element));
   }
@@ -53,7 +53,6 @@ export default class MatchGrid {
       if (element1.id === element2.id) {
         element1.element.classList.add("matched");
         element2.element.classList.add("matched");
-
         this.matchedCount += 2;
 
         if (this.matchedCount === this.grid.length) {
@@ -93,12 +92,10 @@ export default class MatchGrid {
         const timeLeft = parseInt(
           document.getElementById("timer").innerText.split(" ")[2]
         );
-
         if (!allMatched && timeLeft == 0) {
           alert("Time is up! You lose!");
           this.resetGame();
         }
-
         this.endGame();
       }
     }, 1000);
@@ -109,12 +106,8 @@ export default class MatchGrid {
     this.stopTimer();
     this.grid.forEach((element) => {
       element.reset();
-    });
-
-    this.grid.forEach((element) => {
       element.element.classList.add("disabled");
     });
-
     const startButton = document.getElementById("start-button");
     startButton.textContent = "Start Game";
     this.isGameStarted = false;
